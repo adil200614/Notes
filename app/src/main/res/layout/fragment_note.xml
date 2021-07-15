@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_for_note"
+    tools:context=".ui.form.NoteFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarNoteFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="103dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="16:00"
+            android:textColor="@color/grey_for_date" />
+
+        <TextView
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="9 Мая"
+
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/done_noteFragment"
+            android:layout_width="53dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/done"
+            android:textColor="@color/orange"
+            android:textSize="16dp" />
+
+        <EditText
+           android:id="@+id/edit_xtx"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="57dp"
+            android:hint="@string/enter_title"
+            android:paddingLeft="20dp"
+            android:paddingBottom="450dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
