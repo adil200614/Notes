@@ -31,14 +31,19 @@ public class NoteFragment extends Fragment {
     }
 
     private void OnClick(NavController navController) {
-        binding.doneNoteFragment.setOnClickListener(v -> {
-            String title = binding.editXtx.getText().toString();
 
-            model = new TaskModel(title);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("van", model);
-            getParentFragmentManager().setFragmentResult("ask", bundle);
-            navController.navigateUp();
+        binding.doneNoteFragment.setOnClickListener(v -> {
+            if (binding.editXtx.getText().toString().trim().equalsIgnoreCase("")) {
+                binding.editXtx.setError("Введите текст");
+            } else {
+               // отправка в HomeFragment
+                String title = binding.editXtx.getText().toString();
+                model = new TaskModel(title);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("van", model);
+                getParentFragmentManager().setFragmentResult("ask", bundle);
+                navController.navigateUp();
+            }
         });
     }
 }

@@ -7,60 +7,65 @@
     android:background="@color/back_for_note"
     tools:context=".ui.form.NoteFragment">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNoteFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="103dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_light"
-            android:text="16:00"
-            android:textColor="@color/grey_for_date" />
+            android:id="@+id/back_to_note"
+            android:layout_width="@dimen/back"
+            android:layout_height="@dimen/back2"
+            android:layout_marginLeft="@dimen/back3"
+            android:layout_marginTop="@dimen/back4"
+            android:drawableRight="@drawable/ic_baseline_arrow_back_24" />
 
         <TextView
-            android:layout_width="48dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="9 Мая"
+            android:id="@+id/date"
+            android:layout_width="@dimen/time1"
+            android:layout_height="@dimen/time2"
+            android:layout_marginLeft="@dimen/time3"
+            android:layout_marginTop="@dimen/time4"
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/pmv"
+            android:textColor="@color/grey_for_date"
+            android:textSize="@dimen/time5" />
 
-            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/date_cal"
+            android:layout_width="@dimen/date1"
+            android:layout_height="@dimen/date2"
+            android:layout_marginLeft="@dimen/date3"
+            android:layout_marginTop="@dimen/date5"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/nine"
+            android:textColor="@color/white"
+
+            android:textSize="@dimen/date4" />
 
         <TextView
             android:id="@+id/done_noteFragment"
-            android:layout_width="53dp"
-            android:layout_height="23dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="18dp"
+            android:layout_width="@dimen/save"
+            android:layout_height="@dimen/save2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/save3"
+            android:layout_marginEnd="@dimen/save4"
             android:fontFamily="@font/poppins_light"
             android:text="@string/done"
             android:textColor="@color/orange"
-            android:textSize="16dp" />
+            android:textSize="@dimen/save5" />
 
         <EditText
-           android:id="@+id/edit_xtx"
+            android:id="@+id/edit_xtx"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="57dp"
+            android:layout_height="@dimen/ed_note"
+            android:layout_marginTop="@dimen/ed_text"
             android:hint="@string/enter_title"
-            android:paddingLeft="20dp"
-            android:paddingBottom="450dp"
+            android:paddingBottom="@dimen/ed_text2"
+            android:paddingLeft="@dimen/ed_text1"
             android:singleLine="true"
-            android:textColor="@color/white"
+            android:textColor="@color/gray_for_main"
             android:textColorHint="@color/white" />
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

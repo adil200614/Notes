@@ -13,18 +13,18 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="60dp"
-        app:cardCornerRadius="30dp"
-        android:layout_height="60dp">
+        android:layout_width="@dimen/card_view"
+        android:layout_height="@dimen/card_view_hiegth"
+        app:cardCornerRadius="@dimen/corners_radius">
 
         <ImageView
-
             android:id="@+id/imageView"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/billy"
+            android:layout_height="@dimen/view"
             android:contentDescription="@string/nav_header_desc"
+            android:paddingRight="@dimen/view2"
+            android:paddingBottom="@dimen/view3"
             android:src="@drawable/billy" />
-
     </androidx.cardview.widget.CardView>
 
 

@@ -15,11 +15,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.noteapp.R;
 import com.example.noteapp.adapter.TaskAdapter;
 import com.example.noteapp.databinding.FragmentHomeBinding;
 import com.example.noteapp.model.TaskModel;
+import com.example.noteapp.onboard.OnBoardFragment;
 
 import java.util.ArrayList;
 
@@ -33,14 +37,16 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        //   NavController navController = Navigation.findNavController(requireActivity(), R.id)
         getData();
         search();
         SetUpRecycler();
         return binding.getRoot();
     }
 
+
     private void search() {
-       binding.searchTxt.addTextChangedListener(new TextWatcher() {
+        binding.searchTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }

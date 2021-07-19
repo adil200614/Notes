@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+        onDestination(navController);
+        clickFabListener(navController);
+        ImageClick();
+    }
+
+    private void onDestination(NavController navController) {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.noteFragment) {
                 binding.appBarMain.toolbar.setVisibility(View.GONE);
@@ -51,10 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 binding.appBarMain.fab.setVisibility(View.VISIBLE);
             }
         });
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-        clickFabListener(navController);
-        ImageClick();
     }
 
     private void ImageClick() {
@@ -72,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode ==20 && resultCode== -1 && data != null ){
-            Uri uri ;
+        if (requestCode == 20 && resultCode == -1 && data != null) {
+            Uri uri;
             this.uri = uri = data.getData();
             this.imageView.setImageURI(uri);
         }

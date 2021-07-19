@@ -10,19 +10,18 @@
 
     <EditText
         android:id="@+id/search_txt"
-        android:layout_width="304dp"
-        android:layout_height="40dp"
-        android:layout_margin="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="66dp"
+        android:layout_width="@dimen/fragment_note_ed_text"
+        android:layout_height="@dimen/frag_note_heigth"
+        android:layout_margin="@dimen/margin_for_sersh"
+        android:layout_marginTop="@dimen/margin_top"
         android:background="@drawable/itemz_corner_for_search"
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:fontFamily="@font/poppins_light"
         android:hint="@string/search"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@dimen/padding_left"
         android:textColor="@color/grey_for_serch"
         android:textColorHint="@color/grey_for_serch"
-        android:textSize="12dp"
+        android:textSize="@dimen/text_zise"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,15 +29,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_frag"
-        android:layout_width="410dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="@dimen/recycler_"
         android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="@dimen/margin_toping"
         android:background="@color/back_for_note"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="90dp"
         tools:listitem="@layout/item_task" />
 </androidx.constraintlayout.widget.ConstraintLayout>

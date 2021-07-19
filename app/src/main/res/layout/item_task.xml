@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="320dp"
-    android:layout_height="60dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginTop="5dp"
+    android:layout_width="@dimen/cons"
+    android:layout_height="@dimen/cons2"
+    android:layout_marginLeft="@dimen/cons3"
+    android:layout_marginTop="@dimen/cosn3"
     android:background="@drawable/item_corners">
 
     <TextView
@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_light"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:text="Введите текст"
+        android:paddingLeft="@dimen/xtx"
+        android:paddingTop="@dimen/xtx2"
+        android:text="@string/xtx4"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="@dimen/xtx_zise"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
