@@ -42,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController.navigate(R.id.onBoardFragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        onDestination(navController);
+            onDestination(navController);
         clickFabListener(navController);
         ImageClick();
     }
 
+
     private void onDestination(NavController navController) {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            if (destination.getId() == R.id.noteFragment) {
+            if (destination.getId() == R.id.noteFragment || destination.getId() == R.id.onBoardFragment) {
                 binding.appBarMain.toolbar.setVisibility(View.GONE);
                 binding.appBarMain.fab.setVisibility(View.GONE);
             } else {

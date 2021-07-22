@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_for_drawer"
     tools:context=".onboard.ThreeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_first"
+        android:layout_width="@dimen/lottie2"
+        android:layout_height="@dimen/lottie1"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/lottie2"
+            android:layout_height="@dimen/lottie1"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/animation" />
+    </androidx.cardview.widget.CardView>
+
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/funcsions2"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/funcsions"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/textwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="210dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/go_towork"
+        android:textColor="@color/go_to_work" />
 
 </FrameLayout>

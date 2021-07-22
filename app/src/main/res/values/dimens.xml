@@ -58,4 +58,26 @@
     <dimen name="back4">19dp</dimen>
     <dimen name="ed_note">500dp</dimen>
     <dimen name="tool_bar_50dp">50dp</dimen>
+    <dimen name="lottie1">264dp</dimen>
+    <dimen name="lottie2">287dp</dimen>
+    <dimen name="propu1">93dp</dimen>
+    <dimen name="propu2">23dp</dimen>
+    <dimen name="addlottie">260dp</dimen>
+    <dimen name="propustin">25dp</dimen>
+    <dimen name="marginRitht">19dp</dimen>
+    <dimen name="func">226dp</dimen>
+    <dimen name="funcsions">24dp</dimen>
+    <dimen name="funcsions2">170dp</dimen>
+    <dimen name="asssas">270dp</dimen>
+    <dimen name="tablayout">46dp</dimen>
+    <dimen name="tablayout2">12dp</dimen>
+    <dimen name="tablayout3">180dp</dimen>
+    <dimen name="margin_top3">547dp</dimen>
+    <dimen name="width_work">130dp</dimen>
+    <dimen name="hiegth_24dp">24dp</dimen>
+    <dimen name="padding_left3">20dp</dimen>
+    <dimen name="padding_left_2">13dp</dimen>
+    <dimen name="paddig_24">26dp</dimen>
+    <dimen name="padd_6">6</dimen>
+    <dimen name="top_25">25dp</dimen>
 </resources>

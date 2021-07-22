@@ -14,6 +14,8 @@ import com.example.noteapp.onboard.ThreeFragment;
 import org.jetbrains.annotations.NotNull;
 
 public class OnBoardAdapter extends FragmentPagerAdapter {
+
+
     public OnBoardAdapter(@NonNull  FragmentManager fm) {
         super(fm);
     }

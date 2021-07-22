@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <ImageView
             android:id="@+id/back_to_note"
             android:layout_width="@dimen/back"
             android:layout_height="@dimen/back2"
             android:layout_marginLeft="@dimen/back3"
             android:layout_marginTop="@dimen/back4"
-            android:drawableRight="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24" />
 
         <TextView
             android:id="@+id/date"
@@ -61,8 +61,8 @@
             android:layout_height="@dimen/ed_note"
             android:layout_marginTop="@dimen/ed_text"
             android:hint="@string/enter_title"
-            android:paddingBottom="@dimen/ed_text2"
             android:paddingLeft="@dimen/ed_text1"
+            android:paddingBottom="@dimen/ed_text2"
             android:singleLine="true"
             android:textColor="@color/gray_for_main"
             android:textColorHint="@color/white" />

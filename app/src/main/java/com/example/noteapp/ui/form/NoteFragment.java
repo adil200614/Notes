@@ -26,8 +26,15 @@ public class NoteFragment extends Fragment {
         binding = FragmentNoteBinding.inflate(inflater, container, false);
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
         OnClick(navController);
+        OnClickBack(navController);
         return binding.getRoot();
 
+    }
+
+    private void OnClickBack(NavController navController) {
+        binding.backToNote.setOnClickListener(v -> {
+            navController.navigate(R.id.action_noteFragment_to_nav_home);
+        });
     }
 
     private void OnClick(NavController navController) {
@@ -36,7 +43,7 @@ public class NoteFragment extends Fragment {
             if (binding.editXtx.getText().toString().trim().equalsIgnoreCase("")) {
                 binding.editXtx.setError("Введите текст");
             } else {
-               // отправка в HomeFragment
+                // отправка в HomeFragment
                 String title = binding.editXtx.getText().toString();
                 model = new TaskModel(title);
                 Bundle bundle = new Bundle();

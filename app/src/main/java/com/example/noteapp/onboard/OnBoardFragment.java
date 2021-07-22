@@ -15,8 +15,10 @@ import com.example.noteapp.R;
 import com.example.noteapp.adapter.OnBoardAdapter;
 import com.example.noteapp.databinding.FragmentNoteBinding;
 import com.example.noteapp.databinding.FragmentOnBoardBinding;
+import com.google.android.material.tabs.TabLayout;
 
 public class OnBoardFragment extends Fragment {
+
     private FragmentOnBoardBinding binding;
 
     @Override
@@ -24,7 +26,8 @@ public class OnBoardFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentOnBoardBinding.inflate(inflater, container, false);
         OnBoardAdapter onBoardAdapter = new OnBoardAdapter(getActivity().getSupportFragmentManager());
-         binding.viewPager.setAdapter(onBoardAdapter);
+        binding.viewPager.setAdapter(onBoardAdapter);
+        binding.tabLayout.setupWithViewPager(binding.viewPager, true);
         return binding.getRoot();
     }
 }

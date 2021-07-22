@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_for_drawer"
     tools:context=".onboard.SecondFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/lottie2"
+        android:layout_height="@dimen/lottie1"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20dp">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/lottie2"
+            android:layout_height="@dimen/lottie1"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/cutting" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/propusk2"
+        android:layout_width="@dimen/propu1"
+        android:layout_height="@dimen/propu2"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/top_25"
+        android:text="@string/propu3"
+        android:textColor="@color/orange" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="170dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/kachestvo"
+        android:textColor="@color/white" />
 </FrameLayout>

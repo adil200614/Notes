@@ -9,7 +9,7 @@
         android:id="@+id/nav_home"
         android:name="com.example.noteapp.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_noteFragment"
             app:destination="@id/noteFragment" />
@@ -30,10 +30,24 @@
         android:id="@+id/noteFragment"
         android:name="com.example.noteapp.ui.form.NoteFragment"
         android:label="fragment_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/nav_share"
         android:name="com.example.noteapp.ui.share.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.example.noteapp.onboard.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board">
+        <action
+            android:id="@+id/action_onBoardFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
 </navigation>

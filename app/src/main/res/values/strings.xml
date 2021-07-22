@@ -21,4 +21,10 @@
     <string name="pmv">17:21</string>
     <string name="nine">30 Мая</string>
     <string name="xtx4">Введите текст</string>
+    <string name="propu3">Пропустить</string>
+    <string name="funcsions">Очень удобный функционал</string>
+    <string name="kachestvo">Быстрый, качественный продукт</string>
+    <string name="kucha">Куча функций и интересных фишек</string>
+    <string name="go_towork">Начать работу</string>
+
 </resources>
