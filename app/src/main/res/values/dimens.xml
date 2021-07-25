@@ -8,10 +8,10 @@
     <dimen name="activity_main_view">280dp</dimen>
     <dimen name="activity_main_view2">1px</dimen>
     <dimen name="activity_margin_top">280dp</dimen>
-    <dimen name="card_view">60dp</dimen>
-    <dimen name="card_view_hiegth">60dp</dimen>
-    <dimen name="corners_radius">30dp</dimen>
-    <dimen name="billy">90dp</dimen>
+    <dimen name="card_view">50dp</dimen>
+    <dimen name="card_view_hiegth">50dp</dimen>
+    <dimen name="corners_radius">25dp</dimen>
+    <dimen name="billy">100dp</dimen>
     <dimen name="supp_view">32dp</dimen>
     <dimen name="supp_view2">300dp</dimen>
     <dimen name="size_for_text">14sp</dimen>
@@ -50,8 +50,8 @@
     <dimen name="xtx2">5dp</dimen>
     <dimen name="xtx_zise">14sp</dimen>
     <dimen name="view">80dp</dimen>
-    <dimen name="view2">28dp</dimen>
-    <dimen name="view3">22dp</dimen>
+    <dimen name="view2">38dp </dimen>
+    <dimen name="view3">30dp</dimen>
     <dimen name="back">26dp</dimen>
     <dimen name="back2">26dp</dimen>
     <dimen name="back3">12dp</dimen>
@@ -80,4 +80,9 @@
     <dimen name="paddig_24">26dp</dimen>
     <dimen name="padd_6">6</dimen>
     <dimen name="top_25">25dp</dimen>
+    <dimen name="textsixe">15sp</dimen>
+    <dimen name="textsixe2">14sp</dimen>
+    <dimen name="date_width">90dp</dimen>
+    <dimen name="padding_18dp">18dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
 </resources>

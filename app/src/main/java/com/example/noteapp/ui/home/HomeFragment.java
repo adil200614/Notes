@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.noteapp.R;
@@ -25,7 +28,12 @@ import com.example.noteapp.databinding.FragmentHomeBinding;
 import com.example.noteapp.model.TaskModel;
 import com.example.noteapp.onboard.OnBoardFragment;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
 
@@ -33,6 +41,7 @@ public class HomeFragment extends Fragment {
     ArrayList<TaskModel> list = new ArrayList<>();
     TaskAdapter adapter = new TaskAdapter();
     private FragmentHomeBinding binding;
+    boolean isChange = true;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -90,9 +99,27 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new TaskAdapter();
-
+        setHasOptionsMenu(true);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull @NotNull MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            if (isChange) {
+                item.setIcon(R.drawable.ic_baseline_format_list_bulleted_24);
+                binding.homeFrag.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                isChange = false;
+            } else {
+                item.setIcon(R.drawable.ic_baseline_dashboard_24);
+                binding.homeFrag.setLayoutManager(new LinearLayoutManager(getContext()));
+                isChange = true;
+            }
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     @Override
     public void onDestroyView() {

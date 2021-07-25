@@ -39,6 +39,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     @Override
     public int getItemCount(){return list.size();}
+
+
     public void filterList(ArrayList<TaskModel> filterList){
         list = filterList;
         notifyDataSetChanged();

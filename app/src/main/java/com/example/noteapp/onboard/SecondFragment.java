@@ -10,9 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.noteapp.PreferncesHelper;
+import com.example.noteapp.shared.PreferncesHelper;
 import com.example.noteapp.R;
-import com.example.noteapp.databinding.FragmentFirstBinding;
 import com.example.noteapp.databinding.FragmentSecondBinding;
 
 
@@ -33,7 +32,7 @@ public class SecondFragment extends Fragment {
             helper.unit(requireContext());
             helper.onSaveOnBoardState();
             NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.nav_home);
+            navController.navigateUp();
         });
 
     }

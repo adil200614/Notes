@@ -22,9 +22,9 @@
             android:layout_width="@dimen/billy"
             android:layout_height="@dimen/view"
             android:contentDescription="@string/nav_header_desc"
-            android:paddingRight="@dimen/view2"
+            android:paddingRight="50dp"
             android:paddingBottom="@dimen/view3"
-            android:src="@drawable/billy" />
+            android:src="@drawable/ic_baseline_account_circle_24" />
     </androidx.cardview.widget.CardView>
 
 

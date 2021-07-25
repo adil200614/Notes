@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/cons"
-    android:layout_height="@dimen/cons2"
-    android:layout_marginLeft="@dimen/cons3"
-    android:layout_marginTop="@dimen/cosn3"
-    android:background="@drawable/item_corners">
-
-    <TextView
-        android:id="@+id/item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light"
-        android:paddingLeft="@dimen/xtx"
-        android:paddingTop="@dimen/xtx2"
-        android:text="@string/xtx4"
-        android:textColor="@color/white"
-        android:textSize="@dimen/xtx_zise"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layoutNote"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_corners"
+    android:layout_margin="@dimen/margin_10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/padding_18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/item_title"
+            android:text="Title"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/grey_for_date"
+            android:textSize="@dimen/textsixe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/item_txt_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/item_txt_date"
+            android:text="@string/date"
+            android:gravity="center"
+            android:textSize="@dimen/textsixe2"
+            android:textColor="@color/grey_for_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="@dimen/date_width"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

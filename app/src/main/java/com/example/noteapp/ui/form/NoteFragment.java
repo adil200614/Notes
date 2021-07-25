@@ -14,6 +14,10 @@ import com.example.noteapp.R;
 import com.example.noteapp.databinding.FragmentNoteBinding;
 import com.example.noteapp.model.TaskModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class NoteFragment extends Fragment {
 
@@ -26,10 +30,18 @@ public class NoteFragment extends Fragment {
         binding = FragmentNoteBinding.inflate(inflater, container, false);
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
         OnClick(navController);
+//        getItemTime();
         OnClickBack(navController);
         return binding.getRoot();
 
     }
+
+//    private void getItemTime() {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("K:mm a");
+//        Date currentTime = Calendar.getInstance().getTime();
+//        binding.date.setText(currentTime);
+//    }
+
 
     private void OnClickBack(NavController navController) {
         binding.backToNote.setOnClickListener(v -> {
