@@ -5,6 +5,7 @@ package com.example.noteapp.ui.home;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,8 +26,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.noteapp.R;
 import com.example.noteapp.adapter.TaskAdapter;
 import com.example.noteapp.databinding.FragmentHomeBinding;
+import com.example.noteapp.databinding.FragmentNoteBinding;
 import com.example.noteapp.model.TaskModel;
 import com.example.noteapp.onboard.OnBoardFragment;
+import com.example.noteapp.room.App;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,25 +37,32 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
 
-    ArrayList<TaskModel> list = new ArrayList<>();
+    List<TaskModel> list = new ArrayList<>();
     TaskAdapter adapter = new TaskAdapter();
     private FragmentHomeBinding binding;
     boolean isChange = true;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        //   NavController navController = Navigation.findNavController(requireActivity(), R.id)
-        getData();
-        search();
-        SetUpRecycler();
+
         return binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUpRecycler();
+        search();
+        getData();
+
+    }
 
     private void search() {
         binding.searchTxt.addTextChangedListener(new TextWatcher() {
@@ -76,7 +86,7 @@ public class HomeFragment extends Fragment {
     private void filter(String text) {
         ArrayList<TaskModel> filteredList = new ArrayList<>();
         for (TaskModel item : list) {
-            if (item.getTitle().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getTxttitle().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
@@ -86,13 +96,28 @@ public class HomeFragment extends Fragment {
 
     private void getData() {
         getParentFragmentManager().setFragmentResultListener("ask", getViewLifecycleOwner(), (requestKey, result) -> {
-            TaskModel model = (TaskModel) result.getSerializable("van");
-            list.add(model);
-            adapter.addText(model);
+            TaskModel model = (TaskModel) result.get("van");
+            if (model != null) {
+                adapter.addText(model);
+            }
+        });
+        App.getInstance().noteDao().getAll().observe(requireActivity(), new Observer<List<TaskModel>>() {
+            @Override
+            public void onChanged(List<TaskModel> models) {
+                adapter.setetxt(models);
+                list = models;
+                Log.e("tag", "onChanged: ");
+            }
         });
     }
 
-    private void SetUpRecycler() {
+    private void setUpRecycler() {
+        if (!isChange) {
+            binding.homeFrag.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
+        } else {
+            binding.homeFrag.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
         binding.homeFrag.setAdapter(adapter);
     }
 
@@ -118,8 +143,6 @@ public class HomeFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
     @Override
     public void onDestroyView() {
