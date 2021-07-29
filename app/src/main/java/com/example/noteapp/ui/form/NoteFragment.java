@@ -32,17 +32,20 @@ public class NoteFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentNoteBinding.inflate(inflater, container, false);
         NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+        editdata();
         onClick(navController);
-        onClickBack(navController);
         return binding.getRoot();
 
     }
 
+    private void editdata() {
+        if (getArguments() != null) {
+            model = (TaskModel) getArguments().getSerializable("mod");
+            if (model != null) {
+                binding.editXtx.setText(model.getTxttitle());
+            }
 
-    private void onClickBack(NavController navController) {
-        binding.backToNote.setOnClickListener(v -> {
-            navController.navigate(R.id.action_noteFragment_to_nav_home);
-        });
+        }
     }
 
     private void onClick(NavController navController) {
@@ -52,13 +55,20 @@ public class NoteFragment extends Fragment {
             String title = binding.editXtx.getText().toString();
             if (binding.editXtx.getText().toString().trim().equalsIgnoreCase("")) {
                 binding.editXtx.setError("Введите текст");
-            } if (model == null){
+            }
+            if (model == null) {
                 // отправка в HomeFragment
                 model = new TaskModel(title);
                 App.getInstance().noteDao().insertTask(model);
-                Log.e("TAG", "onClick: " + model.getTxttitle());
-                navController.navigateUp();
+
+            } else {
+                model.setTxttitle(title);
+                App.getInstance().noteDao().update(model);
             }
+            navController.navigateUp();
+        });
+        binding.backToNote.setOnClickListener(v -> {
+            navController.navigateUp();
         });
     }
 }

@@ -3,12 +3,14 @@ package com.example.noteapp.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.noteapp.R;
+import com.example.noteapp.interfaces.ItemCLicklistener;
 import com.example.noteapp.model.TaskModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,15 +20,26 @@ import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
-   public List<TaskModel> list = new ArrayList<>();
+    public List<TaskModel> list = new ArrayList<>();
+    private ItemCLicklistener onclicklistener;
 
-    public void  addText (TaskModel title) {
+    public void setItemclicklistener(ItemCLicklistener onclicklistener) {
+        this.onclicklistener = onclicklistener;
+    }
+
+    public void addText(TaskModel title) {
         list.add(title);
         notifyDataSetChanged();
     }
-    public void  setetxt (List<TaskModel> models) {
+
+    public void setetxt(List<TaskModel> models) {
         list.clear();
         this.list.addAll(models);
+        notifyDataSetChanged();
+    }
+
+    public void delete(int position) {
+        list.remove(position);
         notifyDataSetChanged();
     }
 
@@ -41,19 +54,20 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.text_view.setText(list.get(position).getTxttitle());
+        holder.bind(list.get(position));
     }
 
     @Override
-    public int getItemCount(){
-        if (list != null){
-        return list.size();}
-        else {
+    public int getItemCount() {
+        if (list != null) {
+            return list.size();
+        } else {
             return 0;
         }
     }
 
 
-    public void filterList(ArrayList<TaskModel> filterList){
+    public void filterList(ArrayList<TaskModel> filterList) {
         list = filterList;
         notifyDataSetChanged();
     }
@@ -64,6 +78,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             text_view = itemView.findViewById(R.id.item_title);
+
+        }
+
+        public void bind(TaskModel taskModel) {
+            itemView.setOnClickListener(v -> {
+                onclicklistener.clickitem(getAdapterPosition(),taskModel);
+            });
         }
     }
 }
