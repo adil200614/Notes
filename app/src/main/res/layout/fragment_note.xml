@@ -64,6 +64,7 @@
             android:paddingLeft="@dimen/ed_text1"
             android:paddingBottom="@dimen/ed_text2"
             android:singleLine="true"
+            android:fontFamily="@font/poppins_light"
             android:textColor="@color/gray_for_main"
             android:textColorHint="@color/white" />
 
